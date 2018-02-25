@@ -32,8 +32,11 @@ function withFeed(WrappedComponent) {
       const { feedUrl, numPosts } = this.props;
       const { data } = await axios.get(`${feedUrl}?limit=${numPosts}`);
 
-      console.log('fetched', data);
-      this.setState({ posts: data });
+      const combinedPosts = [...this.state.posts, ...data];
+      const cutOff = combinedPosts.length - numPosts;
+      const recentPosts = combinedPosts.slice(cutOff);
+
+      this.setState({ posts: recentPosts });
     };
 
     render() {
