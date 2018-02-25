@@ -13,6 +13,7 @@ class Posts extends Component {
         created_at: PropTypes.string,
         user: PropTypes.shape({
           name: PropTypes.string,
+          profileImageUrl: PropTypes.string,
         }),
         text: PropTypes.string,
       }),
@@ -28,6 +29,7 @@ class Posts extends Component {
             postDate={post.created_at}
             authorName={post.user.name}
             messageBody={post.text}
+            profileImageUrl={post.user.profile_image_url}
           />
         ))}
       </div>
