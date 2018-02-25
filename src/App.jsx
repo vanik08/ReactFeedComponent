@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Posts from './Posts';
+import Posts from './socialfeed/Posts';
 
 import './App.css';
 

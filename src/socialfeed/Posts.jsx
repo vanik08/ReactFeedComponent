@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Post from './Post';
 
+import Post from './Post';
 import withFeed from './withFeed';
+import './Posts.css';
 
 class Posts extends Component {
   static propTypes = {

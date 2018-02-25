@@ -1,0 +1,18 @@
+.Post .paper {
+  /* since material-ui uses inline-styles internally */
+  padding: 10px !important;
+}
+
+.Post .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Post .authorName {
+  font-size: 20px;
+}
+
+.Post .body {
+  /* margin-top: 5px; */
+  font-size: 14px;
+}
