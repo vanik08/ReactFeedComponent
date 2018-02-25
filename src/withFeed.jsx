@@ -6,10 +6,12 @@ function withFeed(WrappedComponent) {
   return class extends Component {
     static propTypes = {
       interval: PropTypes.number,
+      numPosts: PropTypes.number,
     };
 
     static defaultProps = {
       interval: 2000,
+      numPosts: 20,
     };
 
     state = {
@@ -26,8 +28,9 @@ function withFeed(WrappedComponent) {
     }
 
     fetchPosts = async () => {
+      const { numPosts } = this.props;
       const { data } = await axios.get(
-        'http://api.massrelevance.com/MassRelDemo/kindle.json',
+        `http://api.massrelevance.com/MassRelDemo/kindle.json?limit=${numPosts}`,
       );
 
       console.log('fetched', data);
