@@ -10,7 +10,11 @@ class App extends Component {
     return (
       <div className="App">
         <MuiThemeProvider>
-          <Posts interval={3000} />
+          <Posts
+            feedUrl="http://api.massrelevance.com/MassRelDemo/kindle.json"
+            interval={1000}
+            numPosts={5}
+          />
         </MuiThemeProvider>
       </div>
     );

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 function withFeed(WrappedComponent) {
   return class extends Component {
     static propTypes = {
+      feedUrl: PropTypes.string.isRequired,
       interval: PropTypes.number,
       numPosts: PropTypes.number,
     };
@@ -28,10 +29,8 @@ function withFeed(WrappedComponent) {
     }
 
     fetchPosts = async () => {
-      const { numPosts } = this.props;
-      const { data } = await axios.get(
-        `http://api.massrelevance.com/MassRelDemo/kindle.json?limit=${numPosts}`,
-      );
+      const { feedUrl, numPosts } = this.props;
+      const { data } = await axios.get(`${feedUrl}?limit=${numPosts}`);
 
       console.log('fetched', data);
       this.setState({ posts: data });
