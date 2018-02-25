@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <MuiThemeProvider>
-          <Posts />
+          <Posts interval={3000} />
         </MuiThemeProvider>
       </div>
     );
