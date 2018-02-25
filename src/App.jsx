@@ -13,7 +13,7 @@ class App extends Component {
           <Posts
             feedUrl="http://api.massrelevance.com/MassRelDemo/kindle.json"
             interval={1000}
-            numPosts={5}
+            numPosts={20}
           />
         </MuiThemeProvider>
       </div>

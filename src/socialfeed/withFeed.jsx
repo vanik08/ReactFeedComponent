@@ -20,8 +20,19 @@ function withFeed(WrappedComponent) {
     };
 
     componentDidMount() {
-      this.fetchPosts();
-      this.interval = window.setInterval(this.fetchPosts, this.props.interval);
+      const { numPosts } = this.props;
+
+      if (numPosts < 1 || numPosts > 50) {
+        console.error(
+          'Invalid Prop numPosts. numPosts prop must be between 1 and 50',
+        );
+      } else {
+        this.fetchPosts();
+        this.interval = window.setInterval(
+          this.fetchPosts,
+          this.props.interval,
+        );
+      }
     }
 
     componentWillUnmount() {
