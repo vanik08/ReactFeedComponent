@@ -45,13 +45,13 @@ function withFeed(WrappedComponent) {
 
       const combinedPosts = [...this.state.posts, ...data];
       const cutOff = combinedPosts.length - numPosts;
-      const recentPosts = combinedPosts.slice(cutOff);
+      const recentPosts = combinedPosts.slice(cutOff).reverse();
 
       this.setState({ posts: recentPosts });
     };
 
     render() {
-      return <WrappedComponent posts={this.state.posts} />;
+      return <WrappedComponent posts={this.state.posts} {...this.props} />;
     }
   };
 }

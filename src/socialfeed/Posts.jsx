@@ -7,6 +7,8 @@ import './Posts.css';
 
 class Posts extends Component {
   static propTypes = {
+    containerTag: PropTypes.string,
+    containerProps: PropTypes.object,
     posts: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -20,19 +22,24 @@ class Posts extends Component {
     ).isRequired,
   };
 
+  static defaultProps = {
+    containerTag: 'div',
+    containerProps: {},
+  };
+
   render() {
-    return (
-      <div className="Posts">
-        {this.props.posts.map(post => (
-          <Post
-            key={post.id}
-            postDate={post.created_at}
-            authorName={post.user.name}
-            messageBody={post.text}
-            profileImageUrl={post.user.profile_image_url}
-          />
-        ))}
-      </div>
+    return React.createElement(
+      this.props.containerTag,
+      this.props.containerProps,
+      this.props.posts.map(post => (
+        <Post
+          key={post.id}
+          postDate={post.created_at}
+          authorName={post.user.name}
+          messageBody={post.text}
+          profileImageUrl={post.user.profile_image_url}
+        />
+      )),
     );
   }
 }

@@ -14,6 +14,8 @@ class App extends Component {
             feedUrl="http://api.massrelevance.com/MassRelDemo/kindle.json"
             interval={1000}
             numPosts={20}
+            containerTag="div"
+            containerProps={{ className: 'Posts' }}
           />
         </MuiThemeProvider>
       </div>
